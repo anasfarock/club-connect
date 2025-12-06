@@ -9,9 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#1380ec',
-        'primary-dark': '#0a5fd6',
-        'primary-light': '#e8f0fb',
+        primary: {
+          50: '#e8f0fb',
+          100: '#d1e0f7',
+          500: '#1380ec',
+          600: '#0a5fd6',
+          700: '#084bb3',
+        },
         neutral: {
           50: '#f9fafb',
           100: '#f3f4f6',
@@ -24,9 +28,9 @@ const config: Config = {
           800: '#1f2937',
           900: '#111418',
         },
-        'border-light': '#dbe0e6',
         'text-secondary': '#617589',
         'bg-light': '#f0f2f4',
+        'border-light': '#dbe0e6',
       },
       fontFamily: {
         sans: ['Manrope', 'Noto Sans', 'sans-serif'],
@@ -53,6 +57,19 @@ const config: Config = {
         medium: '500',
         bold: '700',
         black: '800',
+      },
+      boxShadow: {
+        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+      },
+      transitionDuration: {
+        '200': '200ms',
+        '300': '300ms',
+      },
+      borderRadius: {
+        'lg': '0.5rem',
+        'xl': '0.75rem',
       },
     },
   },

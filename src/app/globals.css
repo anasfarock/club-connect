@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-white text-neutral-900;
+    @apply bg-white text-[#111418] font-sans;
     font-family: 'Manrope', 'Noto Sans', sans-serif;
   }
 
@@ -39,16 +44,29 @@
   button {
     @apply transition-all duration-200;
   }
+
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
 }
 
+/* ============================================
+   COMPONENTS
+   ============================================ */
 @layer components {
-  /* Button Styles */
+  /* -------- Buttons -------- */
   .btn-primary {
-    @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide;
+    @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1380ec] text-white text-sm font-bold leading-normal tracking-[0.015em];
   }
 
   .btn-primary:hover {
-    @apply bg-primary-dark;
+    @apply bg-[#0a5fd6];
+  }
+
+  .btn-primary:active {
+    @apply bg-[#084bb3];
   }
 
   .btn-primary:disabled {
@@ -56,11 +74,15 @@
   }
 
   .btn-secondary {
-    @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-bg-light text-neutral-900 text-sm font-bold leading-normal tracking-wide;
+    @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em];
   }
 
   .btn-secondary:hover {
-    @apply bg-neutral-200;
+    @apply bg-[#e5e7eb];
+  }
+
+  .btn-secondary:active {
+    @apply bg-[#d1d5db];
   }
 
   .btn-secondary:disabled {
@@ -71,11 +93,32 @@
     @apply btn-primary h-12 px-5 text-base;
   }
 
+  .btn-primary-lg:hover {
+    @apply bg-[#0a5fd6];
+  }
+
   .btn-secondary-lg {
     @apply btn-secondary h-12 px-5 text-base;
   }
 
-  /* Container Styles */
+  .btn-secondary-lg:hover {
+    @apply bg-[#e5e7eb];
+  }
+
+  /* -------- Cards -------- */
+  .card {
+    @apply rounded-lg border border-[#dbe0e6] bg-white p-4;
+  }
+
+  .card:hover {
+    @apply shadow-md border-[#1380ec];
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer transition-all duration-200;
+  }
+
+  /* -------- Layout -------- */
   .layout-container {
     @apply flex h-full grow flex-col;
   }
@@ -84,39 +127,58 @@
     @apply flex flex-col max-w-[960px] flex-1;
   }
 
-  /* Card Styles */
-  .card {
-    @apply rounded-lg border border-border-light bg-white p-4;
-  }
-
-  .card-hover {
-    @apply card transition-all duration-200 hover:shadow-md hover:border-primary;
-  }
-
-  /* Section Heading */
+  /* -------- Typography -------- */
   .section-heading {
-    @apply text-neutral-900 tracking-light text-3xl font-bold leading-tight;
+    @apply text-[#111418] tracking-[-0.015em] text-3xl font-bold leading-tight;
   }
 
   .section-subheading {
-    @apply text-neutral-900 text-base font-normal leading-normal;
+    @apply text-[#111418] text-base font-normal leading-normal;
   }
 
-  /* Link Styles */
+  .text-secondary {
+    @apply text-[#617589];
+  }
+
+  /* -------- Links -------- */
   .nav-link {
-    @apply text-neutral-900 text-sm font-medium leading-normal transition-colors hover:text-primary;
+    @apply text-[#111418] text-sm font-medium leading-normal transition-colors hover:text-[#1380ec];
   }
 
   .footer-link {
-    @apply text-text-secondary text-base font-normal leading-normal min-w-40 transition-colors hover:text-neutral-900;
+    @apply text-[#617589] text-base font-normal leading-normal min-w-40 transition-colors hover:text-[#111418];
   }
 
-  /* Icon Styles */
+  /* -------- Icons -------- */
   .icon-base {
-    @apply text-neutral-900 w-6 h-6;
+    @apply text-[#111418] w-6 h-6;
+  }
+
+  .icon-sm {
+    @apply icon-base w-4 h-4;
+  }
+
+  .icon-lg {
+    @apply icon-base w-8 h-8;
+  }
+
+  /* -------- Forms -------- */
+  .input-base {
+    @apply w-full rounded-lg border border-[#dbe0e6] bg-white px-4 py-2.5 text-[#111418] placeholder-[#617589] focus:border-[#1380ec] focus:outline-none focus:ring-2 focus:ring-[#1380ec] focus:ring-opacity-10 transition-all;
+  }
+
+  .input-error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+  }
+
+  .label-base {
+    @apply block text-sm font-medium text-[#111418] mb-2;
   }
 }
 
+/* ============================================
+   UTILITIES
+   ============================================ */
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
@@ -126,7 +188,104 @@
     @apply flex items-center justify-between;
   }
 
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .grid-center {
+    @apply grid place-items-center;
+  }
+
   .text-truncate {
     @apply truncate;
+  }
+
+  .text-line-clamp-2 {
+    @apply line-clamp-2;
+  }
+
+  .text-line-clamp-3 {
+    @apply line-clamp-3;
+  }
+
+  /* Responsive spacing */
+  .px-responsive {
+    @apply px-4 md:px-10 lg:px-40;
+  }
+
+  .py-responsive {
+    @apply py-4 md:py-6 lg:py-10;
+  }
+
+  /* Border utilities */
+  .border-light {
+    @apply border-[#dbe0e6];
+  }
+
+  .border-primary {
+    @apply border-[#1380ec];
+  }
+
+  /* Background utilities */
+  .bg-primary {
+    @apply bg-[#1380ec];
+  }
+
+  .bg-light {
+    @apply bg-[#f0f2f4];
+  }
+
+  /* Text color utilities */
+  .text-primary {
+    @apply text-[#1380ec];
+  }
+
+  .text-secondary {
+    @apply text-[#617589];
+  }
+
+  /* Shadow utilities */
+  .shadow-sm-primary {
+    @apply shadow-sm;
+  }
+
+  .shadow-md-primary {
+    @apply shadow-md;
+  }
+
+  /* Transform utilities */
+  .hover-scale {
+    @apply hover:scale-105 transition-transform;
+  }
+
+  .hover-shadow {
+    @apply hover:shadow-lg transition-shadow;
+  }
+
+  /* Animation utilities */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .layout-container {
+    @apply px-4;
+  }
+
+  .section-heading {
+    @apply text-2xl;
   }
 }

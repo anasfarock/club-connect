@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { PrimaryButton } from '../buttons/PrimaryButton';
 import { SecondaryButton } from '../buttons/SecondaryButton';
 
@@ -7,6 +10,8 @@ interface HeroSectionProps {
   primaryButtonText: string;
   secondaryButtonText: string;
   backgroundImage: string;
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -15,6 +20,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   primaryButtonText,
   secondaryButtonText,
   backgroundImage,
+  onPrimaryClick,
+  onSecondaryClick,
 }) => {
   return (
     <div className="@container">
@@ -26,17 +33,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         >
           <div className="flex flex-col gap-2 text-center">
-            <h1 className="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-5xl">
+            <h1 className="text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight">
               {title}
             </h1>
-            <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base">
+            <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
               {subtitle}
             </h2>
           </div>
-          
+
           <div className="flex flex-wrap gap-3 justify-center">
-            <PrimaryButton size="lg">{primaryButtonText}</PrimaryButton>
-            <SecondaryButton size="lg">{secondaryButtonText}</SecondaryButton>
+            <PrimaryButton size="lg" onClick={onPrimaryClick}>
+              {primaryButtonText}
+            </PrimaryButton>
+            <SecondaryButton size="lg" onClick={onSecondaryClick}>
+              {secondaryButtonText}
+            </SecondaryButton>
           </div>
         </div>
       </div>

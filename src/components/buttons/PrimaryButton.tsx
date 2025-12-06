@@ -6,6 +6,7 @@ interface PrimaryButtonProps {
   disabled?: boolean;
   size?: 'sm' | 'lg';
   type?: 'button' | 'submit' | 'reset';
+  className?: string;
 }
 
 export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
@@ -14,12 +15,13 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   disabled = false,
   size = 'sm',
   type = 'button',
+  className = '',
 }) => {
   const sizeClass = size === 'lg' ? 'btn-primary-lg' : 'btn-primary';
-  
+
   return (
     <button
-      className={sizeClass}
+      className={`${sizeClass} ${className}`}
       onClick={onClick}
       disabled={disabled}
       type={type}
