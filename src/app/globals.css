@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-neutral-900;
+    font-family: 'Manrope', 'Noto Sans', sans-serif;
+  }
+
+  h1 {
+    @apply font-black leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply font-bold leading-snug;
+  }
+
+  h3 {
+    @apply font-bold leading-snug;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  p {
+    @apply font-normal leading-normal;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-dark;
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-bg-light text-neutral-900 text-sm font-bold leading-normal tracking-wide;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-neutral-200;
+  }
+
+  .btn-secondary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-primary-lg {
+    @apply btn-primary h-12 px-5 text-base;
+  }
+
+  .btn-secondary-lg {
+    @apply btn-secondary h-12 px-5 text-base;
+  }
+
+  /* Container Styles */
+  .layout-container {
+    @apply flex h-full grow flex-col;
+  }
+
+  .layout-content-container {
+    @apply flex flex-col max-w-[960px] flex-1;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply rounded-lg border border-border-light bg-white p-4;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:shadow-md hover:border-primary;
+  }
+
+  /* Section Heading */
+  .section-heading {
+    @apply text-neutral-900 tracking-light text-3xl font-bold leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-neutral-900 text-base font-normal leading-normal;
+  }
+
+  /* Link Styles */
+  .nav-link {
+    @apply text-neutral-900 text-sm font-medium leading-normal transition-colors hover:text-primary;
+  }
+
+  .footer-link {
+    @apply text-text-secondary text-base font-normal leading-normal min-w-40 transition-colors hover:text-neutral-900;
+  }
+
+  /* Icon Styles */
+  .icon-base {
+    @apply text-neutral-900 w-6 h-6;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .text-truncate {
+    @apply truncate;
+  }
+}
