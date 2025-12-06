@@ -1,3 +1,5 @@
+import forms from '@tailwindcss/forms';
+import containerQueries from '@tailwindcss/container-queries';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -74,8 +76,8 @@ const config: Config = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/container-queries'),
+    forms,
+    containerQueries,
   ],
 };
 
